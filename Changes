@@ -2,5 +2,7 @@ Revision history for Perl extension Text-ANSI-Tabs
 
 {{$NEXT}}
 
+0.06 2021-09-03T10:19:49Z
+
     - Spin-off from Text::ANSI::Fold::Util.
 

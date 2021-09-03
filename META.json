@@ -54,6 +54,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kaz-utashiro/Text-ANSI-Tabs/issues"
+      },
+      "homepage" : "https://github.com/kaz-utashiro/Text-ANSI-Tabs",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/kaz-utashiro/Text-ANSI-Tabs.git",
+         "web" : "https://github.com/kaz-utashiro/Text-ANSI-Tabs"
+      }
+   },
    "version" : "0.06",
    "x_authority" : "cpan:UTASHIRO",
    "x_serialization_backend" : "JSON::PP version 4.04",
