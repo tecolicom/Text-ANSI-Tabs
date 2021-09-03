@@ -2,5 +2,5 @@ Revision history for Perl extension Text-ANSI-Tabs
 
 {{$NEXT}}
 
-    - original version
+    - Spin-off from Text::ANSI::Fold::Util.
 

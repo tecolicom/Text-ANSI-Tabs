@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Tab expand and unexpand with ANSI sequence",
    "author" : [
       "Kazumasa Utashiro <kaz@utashiro.com>"
    ],
@@ -42,7 +42,9 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008001"
+            "List::Util" : "1.45",
+            "Text::ANSI::Fold" : "2.11",
+            "perl" : "v5.14.0"
          }
       },
       "test" : {
@@ -52,7 +54,7 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.01",
+   "version" : "0.06",
    "x_authority" : "cpan:UTASHIRO",
    "x_serialization_backend" : "JSON::PP version 4.04",
    "x_static_install" : 1
