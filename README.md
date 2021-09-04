@@ -35,14 +35,16 @@ unexportable functions without them.
     Default tabstop is 8, and can be accessed through
     `$Text::ANSI::Tabs::tabstop` variable.
 
-    Option for underlying **ansi\_fold** can be passed by first parameter as
-    an array reference, as well as `Text::ANSI::Fold->configure` call.
+    Option for the underlying `Text::ANSI::Fold` object can be passed by
+    first parameter as an array reference, as well as `Text::ANSI::Tabs->configure` call.
 
         my $opt = [ tabhead => 'T', tabspace => '_' ];
         ansi_expand($opt, @text);
 
-        Text::ANSI::Fold->configure(tabhead => 'T', tabspace => '_');
+        Text::ANSI::Tabs->configure(tabstyle => 'bar');
         ansi_expand(@text);
+
+    See [Text::ANSI::Fold](https://metacpan.org/pod/Text::ANSI::Fold) for detail.
 
 - **unexpand**(_text_, ...)
 - **ansi\_unexpand**(_text_, ...)
@@ -50,8 +52,31 @@ unexportable functions without them.
     Unexpand tabs.  Interface is compatible with
     [Text::Tabs](https://metacpan.org/pod/Text::Tabs)::unexpand().  Default tabstop is same as `ansi_expand`.
 
-    Please be aware that, current implementation may leave some redundant
-    color designation code.
+    Please be aware that, current implementation may add and/or remove
+    some redundant color designation code.
+
+# METHODS
+
+- **configure**
+
+    Confiugre `Text::ANSI::Fold` object.  Related parameters are those:
+
+    - **tabhead** => _char_
+    - **tabspace** => _char_
+
+        Tab character is converted to **tabhead** and following **tabspace**
+        characters.  Both are white space by default.
+
+    - **tabstyle** => _style_
+
+        Set tab expansion style.  This parameter set both **tabhead** and
+        **tabspace** at once according to the given style name.  Each style has
+        two values for tabhead and tabspace.
+
+        If two style names are combined, like `symbol,space`, use
+        `symbols`'s tabhead and `space`'s tabspace.
+
+    See [Text::ANSI::Fold](https://metacpan.org/pod/Text::ANSI::Fold) for detail.
 
 # SEE ALSO
 

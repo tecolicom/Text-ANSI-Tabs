@@ -29,27 +29,24 @@ use utf8;
 use warnings;
 use Data::Dumper;
 
+BEGIN {
+    *ansi_expand   = \&expand;
+    *ansi_unexpand = \&unexpand;
+}
+
 use Exporter qw(import);
-our @EXPORT_OK = qw(&ansi_expand &ansi_unexpand $tabstop);
+our @EXPORT_OK = qw(
+    &ansi_expand &ansi_unexpand $tabstop
+    &configure
+    );
 our %EXPORT_TAGS = ( all => [ @EXPORT_OK ] );
 
-sub ansi_expand   { goto &expand }
-sub ansi_unexpand { goto &unexpand }
+use Text::ANSI::Fold();
 
-use Text::ANSI::Fold qw(ansi_fold);
+my $fold = Text::ANSI::Fold->new;
 
 our $tabstop = 8;
-our $spacechar = ' ';
-
-sub expand {
-    my @opt = ref $_[0] eq 'ARRAY' ? @{+shift} : ();
-    my @l = map {
-	s{^(.*\t)}{
-	    (ansi_fold($1, -1, expand => 1, tabstop => $tabstop, @opt))[0];
-	}mger;
-    } @_;
-    wantarray ? @l : $l[0];
-}
+our $REMOVE_REDUNDANT = 1;
 
 my $reset_re = qr{ \e \[ [0;]* m }x;
 my $erase_re = qr{ \e \[ [\d;]* K }x;
@@ -62,16 +59,30 @@ my $csi_re   = qr{
     [\x40-\x7e]		# final byte
 }x;
 
-our $REMOVE_REDUNDANT = 1;
+sub configure {
+    my $class = shift;
+    $fold->configure(@_);
+}
+
+sub expand {
+    my @opt = ref $_[0] eq 'ARRAY' ? @{+shift} : ();
+    my @param = (width => -1, expand => 1, tabstop => $tabstop, @opt);
+    my @l = map {
+	s{^(.*\t)(?:[^\e\n]*$end_re+)?}{
+	    ($fold->fold($1, @param))[0];
+	}mger;
+    } @_;
+    wantarray ? @l : $l[0];
+}
 
 sub unexpand {
     my @opt = ref $_[0] eq 'ARRAY' ? @{+shift} : ();
     my @l = map {
-	s{ (.*[ ].*) }{ _unexpand($1) }xmger
+	s{ ^(.*[ ].*) }{ _unexpand($1) }xmger
     } @_;
     if ($REMOVE_REDUNDANT) {
 	for (@l) {
-	    1 while s/ (?<c>$csi_re+) [^\e]* \K $end_re+ \g{c} //xg;
+	    1 while s/ (?<c>$csi_re+) [^\e\n]* \K $end_re+ \g{c} //xg;
 	}
     }
     wantarray ? @l : $l[0];
@@ -83,7 +94,7 @@ sub _unexpand {
     my $margin = 0;
     while (/ /) {
 	my $width = $tabstop + $margin;
-	my($a, $b, $w) = ansi_fold($_, $width);
+	my($a, $b, $w) = $fold->fold($_, width => $width);
 	if ($w == $width) {
 	    $a =~ s/([ ]+)(?= $end_re* $)/\t/x;
 	}
@@ -118,14 +129,17 @@ Expand tabs.  Interface is compatible with L<Text::Tabs>::expand().
 Default tabstop is 8, and can be accessed through
 C<$Text::ANSI::Tabs::tabstop> variable.
 
-Option for underlying B<ansi_fold> can be passed by first parameter as
-an array reference, as well as C<< Text::ANSI::Fold->configure >> call.
+Option for the underlying C<Text::ANSI::Fold> object can be passed by
+first parameter as an array reference, as well as C<<
+Text::ANSI::Tabs->configure >> call.
 
     my $opt = [ tabhead => 'T', tabspace => '_' ];
     ansi_expand($opt, @text);
 
-    Text::ANSI::Fold->configure(tabhead => 'T', tabspace => '_');
+    Text::ANSI::Tabs->configure(tabstyle => 'bar');
     ansi_expand(@text);
+
+See L<Text::ANSI::Fold> for detail.
 
 =item B<unexpand>(I<text>, ...)
 
@@ -134,8 +148,40 @@ an array reference, as well as C<< Text::ANSI::Fold->configure >> call.
 Unexpand tabs.  Interface is compatible with
 L<Text::Tabs>::unexpand().  Default tabstop is same as C<ansi_expand>.
 
-Please be aware that, current implementation may leave some redundant
-color designation code.
+Please be aware that, current implementation may add and/or remove
+some redundant color designation code.
+
+=back
+
+=head1 METHODS
+
+=over 7
+
+=item B<configure>
+
+Confiugre C<Text::ANSI::Fold> object.  Related parameters are those:
+
+=over 4
+
+=item B<tabhead> => I<char>
+
+=item B<tabspace> => I<char>
+
+Tab character is converted to B<tabhead> and following B<tabspace>
+characters.  Both are white space by default.
+
+=item B<tabstyle> => I<style>
+
+Set tab expansion style.  This parameter set both B<tabhead> and
+B<tabspace> at once according to the given style name.  Each style has
+two values for tabhead and tabspace.
+
+If two style names are combined, like C<symbol,space>, use
+C<symbols>'s tabhead and C<space>'s tabspace.
+
+=back
+
+See L<Text::ANSI::Fold> for detail.
 
 =back
 
