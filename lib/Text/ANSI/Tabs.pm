@@ -68,9 +68,9 @@ sub expand {
     my @opt = ref $_[0] eq 'ARRAY' ? @{+shift} : ();
     my @param = (width => -1, expand => 1, tabstop => $tabstop, @opt);
     my @l = map {
-	s{^(.*\t)(?:[^\e\n]*$end_re+)?}{
-	    ($fold->fold($1, @param))[0];
-	}mger;
+	s{^ (?>.*\t) (?: [^\e\n]* $end_re+ )? }{
+	    ($fold->fold(${^MATCH}, @param))[0];
+	}xmgepr;
     } @_;
     wantarray ? @l : $l[0];
 }
