@@ -5,5 +5,6 @@ requires 'Text::ANSI::Fold', '2.11';
 
 on 'test' => sub {
     requires 'Test::More', '0.98';
+    requires 'Text::Tabs';
 };
 

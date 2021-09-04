@@ -16,7 +16,7 @@ Text::ANSI::Tabs - Tab expand and unexpand with ANSI sequence
 
 # VERSION
 
-Version 0.06
+Version 0.07
 
 # DESCRIPTION
 
