@@ -83,8 +83,8 @@ unexportable functions without them.
 [App::ansiexpand](https://metacpan.org/pod/App%3A%3Aansiexpand),
 [https://github.com/kaz-utashiro/App-ansiexpand](https://github.com/kaz-utashiro/App-ansiexpand)
 
-[Text::ANSI::Fold::Tabs](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold%3A%3ATabs),
-[https://github.com/kaz-utashiro/Text-ANSI-Fold-Tabs](https://github.com/kaz-utashiro/Text-ANSI-Fold-Tabs)
+[Text::ANSI::Tabs](https://metacpan.org/pod/Text%3A%3AANSI%3A%3ATabs),
+[https://github.com/kaz-utashiro/Text-ANSI-Tabs](https://github.com/kaz-utashiro/Text-ANSI-Tabs)
 
 [Text::ANSI::Fold::Util](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold%3A%3AUtil),
 [https://github.com/kaz-utashiro/Text-ANSI-Fold-Util](https://github.com/kaz-utashiro/Text-ANSI-Fold-Util)
