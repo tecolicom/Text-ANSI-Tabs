@@ -187,8 +187,13 @@ See L<Text::ANSI::Fold> for detail.
 
 =head1 SEE ALSO
 
-L<Text::ANSI::Fold::Util>,
+L<App::ansiexpand>,
+L<https://github.com/kaz-utashiro/App-ansiexpand>
+
 L<Text::ANSI::Fold::Tabs>,
+L<https://github.com/kaz-utashiro/Text-ANSI-Fold-Tabs>
+
+L<Text::ANSI::Fold::Util>,
 L<https://github.com/kaz-utashiro/Text-ANSI-Fold-Util>
 
 L<Text::ANSI::Fold>,
@@ -196,16 +201,16 @@ L<https://github.com/kaz-utashiro/Text-ANSI-Fold>
 
 L<Text::Tabs>
 
+=head1 AUTHOR
+
+Kazumasa Utashiro
+
 =head1 LICENSE
 
-Copyright 2021 Kazumasa Utashiro.
+Copyright 2021-2022 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=head1 AUTHOR
-
-Kazumasa Utashiro E<lt>kaz@utashiro.comE<gt>
 
 =cut
 
