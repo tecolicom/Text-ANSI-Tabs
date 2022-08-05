@@ -30,7 +30,7 @@ unexportable functions without them.
 - **expand**(_text_, ...)
 - **ansi\_expand**(_text_, ...)
 
-    Expand tabs.  Interface is compatible with [Text::Tabs](https://metacpan.org/pod/Text::Tabs)::expand().
+    Expand tabs.  Interface is compatible with [Text::Tabs](https://metacpan.org/pod/Text%3A%3ATabs)::expand().
 
     Default tabstop is 8, and can be accessed through
     `$Text::ANSI::Tabs::tabstop` variable.
@@ -44,13 +44,13 @@ unexportable functions without them.
         Text::ANSI::Tabs->configure(tabstyle => 'bar');
         ansi_expand(@text);
 
-    See [Text::ANSI::Fold](https://metacpan.org/pod/Text::ANSI::Fold) for detail.
+    See [Text::ANSI::Fold](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold) for detail.
 
 - **unexpand**(_text_, ...)
 - **ansi\_unexpand**(_text_, ...)
 
     Unexpand tabs.  Interface is compatible with
-    [Text::Tabs](https://metacpan.org/pod/Text::Tabs)::unexpand().  Default tabstop is same as `ansi_expand`.
+    [Text::Tabs](https://metacpan.org/pod/Text%3A%3ATabs)::unexpand().  Default tabstop is same as `ansi_expand`.
 
     Please be aware that, current implementation may add and/or remove
     some redundant color designation code.
@@ -76,18 +76,18 @@ unexportable functions without them.
         If two style names are combined, like `symbol,space`, use
         `symbols`'s tabhead and `space`'s tabspace.
 
-    See [Text::ANSI::Fold](https://metacpan.org/pod/Text::ANSI::Fold) for detail.
+    See [Text::ANSI::Fold](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold) for detail.
 
 # SEE ALSO
 
-[Text::ANSI::Fold::Util](https://metacpan.org/pod/Text::ANSI::Fold::Util),
-[Text::ANSI::Fold::Tabs](https://metacpan.org/pod/Text::ANSI::Fold::Tabs),
+[Text::ANSI::Fold::Util](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold%3A%3AUtil),
+[Text::ANSI::Fold::Tabs](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold%3A%3ATabs),
 [https://github.com/kaz-utashiro/Text-ANSI-Fold-Util](https://github.com/kaz-utashiro/Text-ANSI-Fold-Util)
 
-[Text::ANSI::Fold](https://metacpan.org/pod/Text::ANSI::Fold),
+[Text::ANSI::Fold](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold),
 [https://github.com/kaz-utashiro/Text-ANSI-Fold](https://github.com/kaz-utashiro/Text-ANSI-Fold)
 
-[Text::Tabs](https://metacpan.org/pod/Text::Tabs)
+[Text::Tabs](https://metacpan.org/pod/Text%3A%3ATabs)
 
 # LICENSE
 
