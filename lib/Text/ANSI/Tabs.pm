@@ -1,5 +1,5 @@
 package Text::ANSI::Tabs;
-our $VERSION = "0.08";
+our $VERSION = "1.01";
 
 =encoding utf-8
 
@@ -20,7 +20,7 @@ Text::ANSI::Tabs - Tab expand and unexpand with ANSI sequence
 
 =head1 VERSION
 
-Version 0.08
+Version 1.01
 
 =cut
 
