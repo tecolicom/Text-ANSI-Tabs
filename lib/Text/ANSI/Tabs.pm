@@ -41,23 +41,17 @@ our @EXPORT_OK = qw(
     );
 our %EXPORT_TAGS = ( all => [ @EXPORT_OK ] );
 
-use Text::ANSI::Fold();
+use Text::ANSI::Fold qw(
+    $csi_re
+    $reset_re
+    $erase_re
+    );
+my  $end_re = qr{ $reset_re | $erase_re }x;
 
 my $fold = Text::ANSI::Fold->new;
 
 our $tabstop = 8;
 our $REMOVE_REDUNDANT = 1;
-
-my $reset_re = qr{ \e \[ [0;]* m }x;
-my $erase_re = qr{ \e \[ [\d;]* K }x;
-my $end_re   = qr{ $reset_re | $erase_re }x;
-my $csi_re   = qr{
-    # see ECMA-48 5.4 Control sequences
-    \e \[		# csi
-    [\x30-\x3f]*	# parameter bytes
-    [\x20-\x2f]*	# intermediate bytes
-    [\x40-\x7e]		# final byte
-}x;
 
 sub configure {
     my $class = shift;
