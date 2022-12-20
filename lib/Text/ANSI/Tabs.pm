@@ -1,5 +1,5 @@
 package Text::ANSI::Tabs;
-our $VERSION = "1.01";
+our $VERSION = "1.02";
 
 =encoding utf-8
 
@@ -20,7 +20,7 @@ Text::ANSI::Tabs - Tab expand and unexpand with ANSI sequence
 
 =head1 VERSION
 
-Version 1.01
+Version 1.02
 
 =cut
 
@@ -109,7 +109,7 @@ ANSI sequence and Unicode wide characters aware version of Text::Tabs.
 
 =head1 FUNCTION
 
-There are exportable functions start with B<ansi_> prefix, and
+There are exportable functions start with C<ansi_> prefix, and
 unexportable functions without them.
 
 =over 7
