@@ -87,10 +87,10 @@ unexportable functions without them.
 [https://github.com/kaz-utashiro/Text-ANSI-Tabs](https://github.com/kaz-utashiro/Text-ANSI-Tabs)
 
 [Text::ANSI::Fold::Util](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold%3A%3AUtil),
-[https://github.com/kaz-utashiro/Text-ANSI-Fold-Util](https://github.com/kaz-utashiro/Text-ANSI-Fold-Util)
+[https://github.com/tecolicom/Text-ANSI-Fold-Util](https://github.com/tecolicom/Text-ANSI-Fold-Util)
 
 [Text::ANSI::Fold](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold),
-[https://github.com/kaz-utashiro/Text-ANSI-Fold](https://github.com/kaz-utashiro/Text-ANSI-Fold)
+[https://github.com/tecolicom/Text-ANSI-Fold](https://github.com/tecolicom/Text-ANSI-Fold)
 
 [Text::Tabs](https://metacpan.org/pod/Text%3A%3ATabs)
 
@@ -100,7 +100,7 @@ Kazumasa Utashiro
 
 # LICENSE
 
-Copyright 2021-2022 Kazumasa Utashiro.
+Copyright 2021-2023 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
