@@ -182,10 +182,10 @@ See L<Text::ANSI::Fold> for detail.
 =head1 SEE ALSO
 
 L<App::ansiexpand>,
-L<https://github.com/kaz-utashiro/App-ansiexpand>
+L<https://github.com/tecolicom/App-ansiexpand>
 
 L<Text::ANSI::Tabs>,
-L<https://github.com/kaz-utashiro/Text-ANSI-Tabs>
+L<https://github.com/tecolicom/Text-ANSI-Tabs>
 
 L<Text::ANSI::Fold::Util>,
 L<https://github.com/tecolicom/Text-ANSI-Fold-Util>

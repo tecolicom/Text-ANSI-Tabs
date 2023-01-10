@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/kaz-utashiro/Text-ANSI-Tabs/workflows/test/badge.svg)](https://github.com/kaz-utashiro/Text-ANSI-Tabs/actions) [![MetaCPAN Release](https://badge.fury.io/pl/Text-ANSI-Tabs.svg)](https://metacpan.org/release/Text-ANSI-Tabs)
+[![Actions Status](https://github.com/tecolicom/Text-ANSI-Tabs/workflows/test/badge.svg)](https://github.com/tecolicom/Text-ANSI-Tabs/actions) [![MetaCPAN Release](https://badge.fury.io/pl/Text-ANSI-Tabs.svg)](https://metacpan.org/release/Text-ANSI-Tabs)
 # NAME
 
 Text::ANSI::Tabs - Tab expand and unexpand with ANSI sequence
@@ -81,10 +81,10 @@ unexportable functions without them.
 # SEE ALSO
 
 [App::ansiexpand](https://metacpan.org/pod/App%3A%3Aansiexpand),
-[https://github.com/kaz-utashiro/App-ansiexpand](https://github.com/kaz-utashiro/App-ansiexpand)
+[https://github.com/tecolicom/App-ansiexpand](https://github.com/tecolicom/App-ansiexpand)
 
 [Text::ANSI::Tabs](https://metacpan.org/pod/Text%3A%3AANSI%3A%3ATabs),
-[https://github.com/kaz-utashiro/Text-ANSI-Tabs](https://github.com/kaz-utashiro/Text-ANSI-Tabs)
+[https://github.com/tecolicom/Text-ANSI-Tabs](https://github.com/tecolicom/Text-ANSI-Tabs)
 
 [Text::ANSI::Fold::Util](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold%3A%3AUtil),
 [https://github.com/tecolicom/Text-ANSI-Fold-Util](https://github.com/tecolicom/Text-ANSI-Fold-Util)
