@@ -59,7 +59,12 @@ unexportable functions without them.
 
 - **configure**
 
-    Confiugre `Text::ANSI::Fold` object.  Related parameters are those:
+    Confiugre and return the underlying `Text::ANSI::Fold` object.
+    Related parameters are those:
+
+    - **tabstop** => _num_
+
+        Set the value of variable `$Text::ANSI::Tabs::tabstop` to _num_.
 
     - **tabhead** => _char_
     - **tabspace** => _char_
@@ -100,7 +105,7 @@ Kazumasa Utashiro
 
 # LICENSE
 
-Copyright 2021-2023 Kazumasa Utashiro.
+Copyright 2021-2024 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

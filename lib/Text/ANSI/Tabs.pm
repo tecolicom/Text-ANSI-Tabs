@@ -55,7 +55,13 @@ our $REMOVE_REDUNDANT = 1;
 
 sub configure {
     my $class = shift;
-    $fold->configure(@_);
+    @_ % 2 and die "invalid parameter.\n";
+    my %opt = @_;
+    if ($opt{tabstop}) {
+	$tabstop = $opt{tabstop};
+    }
+    $fold->configure(@_) if @_;
+    return $fold;
 }
 
 sub expand {
@@ -153,9 +159,14 @@ some redundant color designation code.
 
 =item B<configure>
 
-Confiugre C<Text::ANSI::Fold> object.  Related parameters are those:
+Confiugre and return the underlying C<Text::ANSI::Fold> object.
+Related parameters are those:
 
 =over 4
+
+=item B<tabstop> => I<num>
+
+Set the value of variable C<$Text::ANSI::Tabs::tabstop> to I<num>.
 
 =item B<tabhead> => I<char>
 
@@ -201,7 +212,7 @@ Kazumasa Utashiro
 
 =head1 LICENSE
 
-Copyright 2021-2023 Kazumasa Utashiro.
+Copyright 2021-2024 Kazumasa Utashiro.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
