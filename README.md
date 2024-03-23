@@ -81,6 +81,13 @@ unexportable functions without them.
         If two style names are combined, like `symbol,space`, use
         `symbols`'s tabhead and `space`'s tabspace.
 
+    - **minimum** => _num_
+
+        By default, **unexpand** converts two or more consecutive whitespace
+        characters into tab characters.  This parameter specifies the minimum
+        number of whitespace characters to be converted to tabs.  Specifying
+        it to 1 will convert all possible whitespace characters.
+
     See [Text::ANSI::Fold](https://metacpan.org/pod/Text%3A%3AANSI%3A%3AFold) for detail.
 
 # SEE ALSO
