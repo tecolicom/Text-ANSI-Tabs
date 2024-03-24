@@ -57,16 +57,20 @@ our $REMOVE_REDUNDANT = 1;
 sub configure {
     my $class = shift;
     @_ % 2 and die "invalid parameter.\n";
-    my %opt = @_;
-    if ($opt{tabstop}) {
-	$tabstop = $opt{tabstop};
+    my @fold_opt;
+    while (my($k, $v) = splice(@_, 0, 2)) {
+	if ($k eq 'tabstop') {
+	    $tabstop = $v;
+	}
+	elsif ($k eq 'minimum') {
+	    $v =~ /^\d+$/ and $v > 0
+		or die "$v: invalid value for minimum space.\n";
+	    $min_space = $v;
+	} else {
+	    push @fold_opt, $k => $v;
+	}
     }
-    if (defined(my $n = delete $opt{minimum})) {
-	$n =~ /^\d+$/ and $n > 0
-	    or die "$n: invalid value for minimum space.\n";
-	$min_space = $n;
-    }
-    $fold->configure(%opt) if %opt;
+    $fold->configure(@fold_opt) if @fold_opt;
     return $fold;
 }
 
