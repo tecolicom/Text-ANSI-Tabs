@@ -74,12 +74,20 @@ sub configure {
     return $fold;
 }
 
+sub IsEOL {
+    <<"END";
+0000\t0000
+000A\t000D
+2028\t2029
+END
+}
+
 sub expand {
-    my @opt = ref $_[0] eq 'ARRAY' ? @{+shift} : ();
-    my @param = (width => -1, expand => 1, tabstop => $tabstop, @opt);
+    $fold->configure(width => -1, expand => 1, tabstop => $tabstop,
+		     ref $_[0] eq 'ARRAY' ? @{+shift} : ());
     my @l = map {
 	s{^ (?>.*\t) (?: [^\e\n]* $end_re+ )? }{
-	    ($fold->fold(${^MATCH}, @param))[0];
+	    join '', $fold->text(${^MATCH})->chops();
 	}xmgepr;
     } @_;
     wantarray ? @l : $l[0];
