@@ -131,7 +131,7 @@ __END__
 
 ANSI sequence and Unicode wide characters aware version of Text::Tabs.
 
-It assumes that the ANSI decolation is completed within a single line,
+It assumes that the ANSI decoration is completed within a single line,
 and cannot correctly process data where the effect continues over
 multiple lines.
 
@@ -181,7 +181,7 @@ some redundant color designation code.
 
 =item B<configure>
 
-Confiugre and return the underlying C<Text::ANSI::Fold> object.
+Configure and return the underlying C<Text::ANSI::Fold> object.
 Related parameters are those:
 
 =over 4
@@ -249,4 +249,5 @@ it under the same terms as Perl itself.
 =cut
 
 #  LocalWords:  ansi utf substr unexpand exportable unexportable
-#  LocalWords:  tabstop tabhead tabspace Kazumasa Utashiro
+#  LocalWords:  tabstop tabhead tabspace Kazumasa Utashiro tabstyle
+#  LocalWords:  whitespace

@@ -22,7 +22,7 @@ Version 1.06
 
 ANSI sequence and Unicode wide characters aware version of Text::Tabs.
 
-It assumes that the ANSI decolation is completed within a single line,
+It assumes that the ANSI decoration is completed within a single line,
 and cannot correctly process data where the effect continues over
 multiple lines.
 
@@ -63,7 +63,7 @@ unexportable functions without them.
 
 - **configure**
 
-    Confiugre and return the underlying `Text::ANSI::Fold` object.
+    Configure and return the underlying `Text::ANSI::Fold` object.
     Related parameters are those:
 
     - **tabstop** => _num_
