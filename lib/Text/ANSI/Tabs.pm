@@ -1,5 +1,5 @@
 package Text::ANSI::Tabs;
-our $VERSION = "1.0501";
+our $VERSION = "1.06";
 
 =encoding utf-8
 
@@ -20,7 +20,7 @@ Text::ANSI::Tabs - Tab expand and unexpand with ANSI sequence
 
 =head1 VERSION
 
-Version 1.0501
+Version 1.06
 
 =cut
 
@@ -130,6 +130,10 @@ __END__
 =head1 DESCRIPTION
 
 ANSI sequence and Unicode wide characters aware version of Text::Tabs.
+
+It assumes that the ANSI decolation is completed within a single line,
+and cannot correctly process data where the effect continues over
+multiple lines.
 
 =head1 FUNCTION
 

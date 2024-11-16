@@ -2,6 +2,10 @@ Revision history for Perl extension Text-ANSI-Tabs
 
 {{$NEXT}}
 
+1.06 2024-11-16T07:09:49Z
+
+    - use new Text::ANSI::Fold@2.25 interface
+
 1.0501 2024-03-24T00:40:44Z
 
     - fixed bug of unexpected behabior in configure()
